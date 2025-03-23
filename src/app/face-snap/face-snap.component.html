@@ -1,0 +1,16 @@
+<div class="face-snap-card" [ngClass]="{snapped: hasSnapped}">
+  <h2>{{faceSnap.title | uppercase }}</h2>
+  <!-- [] signifie : ce que je vais mettre entre [] viendras du code typscript -->
+  @if (faceSnap.location) {
+    <p>Location : {{faceSnap.location}}</p>
+  } @else {
+    <p>Localisation non spécifié</p>
+  }
+  <img id="img" [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+  <p>{{faceSnap.description}}</p>
+  <p>Face snap crée le {{faceSnap.createdAt | date: 'longDate'}}</p>
+  <p>
+    <button (click)="onSnap()">{{buttonText}}</button>
+    <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">{{faceSnap.snaps}}</span>
+  </p>
+</div>
