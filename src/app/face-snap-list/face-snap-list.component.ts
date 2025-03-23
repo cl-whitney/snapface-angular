@@ -14,6 +14,8 @@ import { FaceSnapService } from '../services/face-snaps.services';
 export class FaceSnapListComponent implements OnInit {
   faceSnaps!: FaceSnap[];
 
+  // Injection de la dépendance faceSnapServices pour permettre l'accès aux données et à la logique métier.
+  // La propriété  est définie comme , ce qui garantit qu'elle ne peut pas être manipulée directement à l'extérieur de la classe.
   constructor(private faceSnapServices: FaceSnapService){}
 
   ngOnInit(): void {

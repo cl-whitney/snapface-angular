@@ -1,11 +1,14 @@
 import { FaceSnap } from './../models/face-snap';
 import { Injectable } from "@angular/core";
 
+// Ce decorateur transforme la classe FaceSnapService en service Angular
 @Injectable({
+  // Indique que le service est enregistré au niveau racine de l'application, ce qui garantit qu'il y a une seule instance de ce service (singleton) partagée dans tout le projet.
   providedIn: 'root'
 })
 
 export class FaceSnapService {
+  // Private empeche l'accès direct à cette propriété depuis l'extérieur de la classe, ce qui protège les données.
     private faceSnaps: FaceSnap[] = [
       new FaceSnap (
         'Whitney',
@@ -30,6 +33,8 @@ export class FaceSnapService {
       )
     ];
 
+    // La méthode retourne un tableau de FaceSnap
+    // Le spread opérateur permet de renvoyer une copie du tableau au lieu de la reférence directe, pour proteger les données internes contre toute modification accidentelle ou intentionelle de l'extérieur.
     getFaceSnaps(): FaceSnap[]{
       return [... this.faceSnaps]
     }
